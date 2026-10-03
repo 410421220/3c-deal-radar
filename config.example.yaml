@@ -1,0 +1,55 @@
+# ============================================================
+# Product crawler — config file
+# ============================================================
+
+# ── Notification conditions ─────────────────────────────
+notify:
+  max_items: 10
+  # Only notify specific conditions: new / used / all
+  condition: "all"
+
+# ── Price threshold ─────────────────────────────────────
+max_price: 20000
+
+# ── Telegram ────────────────────────────────────────────
+# Token prefers env vars TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID
+# falls back to the values below
+telegram:
+  bot_token: "YOUR_BOT_TOKEN"  # or set TELEGRAM_BOT_TOKEN
+  chat_id: "YOUR_CHAT_ID"      # or set TELEGRAM_CHAT_ID
+
+# ── PTT ─────────────────────────────────────────────────
+ptt:
+  boards:
+    - HardwareSale
+    - MacShop
+  keywords:
+    - "賣"
+    - "販售"
+    - "二手"
+  request_delay: 0.5
+  max_pages: 2
+  cookie_over18: "1"
+
+# ── Ruten（露天）─────────────────────────────────────────
+ruten:
+  request_delay: 1.0
+  # isnew: 0=all, 1=new
+  isnew: "0"
+  # Category IDs to search
+  categories:
+    - "00110001"      # Desktop PCs
+    - "00110031"      # Graphics cards
+    - "00110002"      # Laptops
+    - "00110030"      # SSD/RAM
+    - "00110013"      # Phones/smartphones
+    - "00210001"      # Cameras/photography
+
+# ── Scheduling ──────────────────────────────────────────
+# schedule:
+#   hours: [9, 14, 21]
+
+# ── Data storage ────────────────────────────────────────
+data:
+  products_file: "data/products.json"
+  log_file: "logs/crawler.log"
