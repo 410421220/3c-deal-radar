@@ -8,7 +8,6 @@ Multi-platform product crawler: fetches listings from **Ruten（露天）** and 
 - **PTT crawler** — scrape PTT HardwareSale board posts, parse listing info
 - **AI analysis (optional)** — score value-for-money via the OpenRouter API
 - **Telegram notifications** — instant alerts for new listings / low prices
-- **CPU temperature logging** — append to a JSONL log
 
 ## Install
 
@@ -42,12 +41,6 @@ python crawler.py --config /path/to/config.yaml
 python test_connection.py
 ```
 
-### CPU temperature logging
-
-```bash
-python check_cpu_temp.py
-```
-
 ## Config
 
 Edit `config.yaml`:
@@ -70,7 +63,6 @@ crawler/
 ├── crawler.py             # main program
 ├── analyzer.py            # AI price analysis
 ├── notifier.py            # Telegram notification
-├── check_cpu_temp.py      # CPU temperature logger
 ├── test_connection.py     # connectivity test
 ├── requirements.txt
 └── sites/
