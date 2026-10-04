@@ -1,5 +1,6 @@
 #!/bin/bash
-CRAWLER_DIR="${CRAWLER_DIR:-/opt/data/sandbox/crawler}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CRAWLER_DIR="${CRAWLER_DIR:-$SCRIPT_DIR}"
 cd "$CRAWLER_DIR"
 # Load environment variables from .env if exists
 if [ -f "$CRAWLER_DIR/.env" ]; then
@@ -38,7 +39,7 @@ with open(log_file, 'r') as f:
     if 'Telegram sent' in new_output or 'Telegram notification sent' in new_output:
         with open('$RESULT', 'w') as out:
             out.write('has_result')
-" 2>/dev/null
+" 2>>/tmp/crawler_cron_err.log
 
 if [ -f "$RESULT" ]; then
     echo "CRAWLER_DONE"
