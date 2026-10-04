@@ -1,4 +1,4 @@
-# Product Crawler
+# 3C Deal Radar
 
 Multi-platform product crawler: fetches listings from **Ruten（露天）** and **PTT (HardwareSale)**, filters out overpriced items, and sends **Telegram** notifications.
 
@@ -58,7 +58,7 @@ Edit `config.yaml`:
 ## Project layout
 
 ```
-crawler/
+3c-deal-radar/
 ├── config.yaml            # config
 ├── crawler.py             # main program
 ├── analyzer.py            # AI price analysis
