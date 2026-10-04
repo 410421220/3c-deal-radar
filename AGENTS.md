@@ -27,7 +27,7 @@ No unit test framework; `test_connection.py` is a live connectivity smoke test.
 - `config.yaml` contains a **plaintext Telegram token** and is **gitignored** — never commit it. Use `config.example.yaml` as the template (copy to `config.yaml` locally). In production prefer env vars `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID` (notifier reads env first).
 - PTT requires `Cookie: over18=1` for HardwareSale; Ruten API only sends the `isnew` param when it is `"0"`/`"1"` (`"2"` = omitted).
 - `check_cpu_temp.py` defaults to repo-local `logs/cpu_temp.jsonl`; override with `CPU_TEMP_LOG`.
-- `run_crawler.sh` is the cron deploy script; default dir `/opt/data/sandbox/crawler`, override with `CRAWLER_DIR`; it forces `products_file` to `/tmp/crawler_products.json`. Success detection looks for `Telegram sent` / `Telegram notification sent` in the log.
+- `run_crawler.sh` is the cron deploy script; default dir is the script's own directory, override with `CRAWLER_DIR`; it forces `products_file` to `/tmp/crawler_products.json`. Success detection looks for `Telegram sent` / `Telegram notification sent` in the log.
 
 ## Style
 
