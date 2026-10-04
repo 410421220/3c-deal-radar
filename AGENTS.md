@@ -26,7 +26,7 @@ No unit test framework; `test_connection.py` is a live connectivity smoke test.
 - `config.yaml` `data.products_file` / `log_file` are relative (`data/`, `logs/`); when deploying elsewhere, override via `--config`.
 - `config.yaml` contains a **plaintext Telegram token** and is **gitignored** — never commit it. Use `config.example.yaml` as the template (copy to `config.yaml` locally). In production prefer env vars `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID` (notifier reads env first).
 - PTT requires `Cookie: over18=1` for HardwareSale; Ruten API only sends the `isnew` param when it is `"0"`/`"1"` (`"2"` = omitted).
-- `run_crawler.sh` is the cron deploy script; default dir is the script's own directory, override with `CRAWLER_DIR`; it forces `products_file` to `/tmp/crawler_products.json`. Success detection looks for `Telegram sent` / `Telegram notification sent` in the log.
+- `scripts/run_crawler.sh` is the cron/systemd wrapper: flock prevents overlap, `TIMEOUT_SECONDS` (default 300) caps runtime, `.env` is sourced, dedupe state persists at `data/products.json` via config.
 
 ## Style
 
